@@ -5,6 +5,7 @@
  */
 angular.module('app').service("HTTPService", function ($http) {
     let server = "http://192.168.15.95/server/servico.php";
+    //let server = "http://us-cdbr-iron-east-03.cleardb.net/server/servico.php";
 
     this.doRequest = function (method, url, data, headers) {
         /*if (method.toUpperCase() == 'GET')
