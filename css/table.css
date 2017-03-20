@@ -1,0 +1,89 @@
+@media (min-width: 37em) { /* 592px */ 
+    
+ } 
+
+@media (min-width: 41em) { /* 656px */ 
+    
+ } 
+
+@media (min-width: 47em) { /* 752px */ 
+    .table-relative {
+        max-height: 80%;
+    }
+ } 
+
+@media (min-width: 68em) { /* 1088px */ 
+    
+ } 
+
+@media (min-width: 82em) { /* 1312px */ 
+    
+ } 
+
+@media (min-width: 100em) { /* 1600px */ 
+    .table-relative {
+        max-height: 30em;
+    }
+ } 
+
+.table {
+    height: 100%;
+}
+
+.table-container{
+    padding: 20px;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.row-tens{
+    width: 100%;
+    max-width: 1200px;
+}
+
+.scrollable {
+    max-height: 700px;
+    overflow: auto;
+}
+
+.table-content{
+    width: auto;
+}
+
+.table-content input, .table-content select{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+}
+
+.button-group a{
+    display: inline;
+}
+
+.button-group {
+    min-width: 100px !important;
+}
+
+.slide td {
+    min-width: 80px;
+}
+
+.slide td select{
+    min-width: 80px;
+}
+
+.slide.ng-leave 
+{
+    -webkit-transition: 0.5s;
+    transition: 0.75s;
+}
+.slide.ng-leave-active 
+{
+    opacity:0;
+}

@@ -1,0 +1,21 @@
+.navbar  *{
+    background-color: dimgrey;
+}
+
+.container-fluid a{
+    color: lightgrey !important;
+}
+
+.navbar-toggle {
+    background-color: dimgray;
+    border-color: lightgrey;
+}
+
+.navbar-toggle span{
+    background-color: lightgrey !important;
+}
+
+.social li a{
+    font-size: 180% !important;
+}
+    

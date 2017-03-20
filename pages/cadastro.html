@@ -1,0 +1,39 @@
+<div ng-controller="CadastroController">
+    <form id="form" class="flex-container" ng-submit="submit(deal)">
+        <div class="row">
+            <div class="form-group flex-item">
+                <label for="type">Tipo:</label>
+                <input type="text" class="form-control" id="type" name="type" ng-model="deal.type" autocomplete="off" required>
+            </div>
+            
+            <div class="form-group flex-item">
+                <label for="name">Nome:</label>
+                <input type="text" class="form-control" id="name" name="name" ng-model="deal.name" autocomplete="off" required>
+            </div>
+            
+            <div class="form-group flex-item">
+                <label for="qtd">Quantidade:</label>
+                <input type="number" min="1" class="form-control" id="qtd" name="qtd" ng-model="deal.qtd" required>
+            </div>
+            
+            <div class="form-group flex-item">
+                <label for="price">Preço:</label>
+                <div class="input-group"> 
+                    <span class="input-group-addon">R$</span>
+                    <input type="number" step="0.01" class="form-control" id="price" name="price" autocomplete="off">
+                </div>
+            </div>
+            
+            <div class="flex-inline">
+                <div class="switch">
+                    <input type="checkbox" class="switch-checkbox" id="switch" name="switch" checked ng-model="deal.dealType">
+                    <label class="switch-label" for="switch">
+                        <span class="switch-inner"></span>
+                        <span class="switch-switch"></span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-default">Cadastrar</button>
+            </div>
+        </div>
+    </form>    
+</div>

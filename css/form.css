@@ -1,0 +1,32 @@
+.flex-container {
+    padding: 20px;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+@media (min-width:700px){
+    .flex-container{
+        padding-top: 8em;
+    }
+}
+
+.row {
+    width: auto;
+}
+
+.flex-item {
+    max-width: 700px;
+}
+
+.flex-inline {
+    padding-top: 1em;
+    width: 100%;
+    justify-content: space-between;
+    display: inline-flex;
+}
