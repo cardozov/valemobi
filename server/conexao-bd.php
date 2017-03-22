@@ -11,10 +11,10 @@
         public static function connect() { 
 
             if(!self::$conn){
-                $username = "b66774b33dcd49";
-                $password = "ef3dfaba";
+                $username = "b79c54c24df952";
+                $password = "f05e15c8";
                 $host = "us-cdbr-iron-east-03.cleardb.net";
-                $database = "heroku_a7c65e9b9894ed6";
+                $database = "heroku_dd7bbc457a60954";
                 self::$conn = new PDO("mysql:host=$host;dbname=$database", $username, $password);
             }
 
