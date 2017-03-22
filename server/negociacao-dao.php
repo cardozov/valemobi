@@ -95,8 +95,7 @@
         * @return Negociacao[] || Error
         */
         public static function select(){
-            //$obj = json_decode($_GET["data"],true);
-            $obj = array("id"=>"37");
+            $obj = json_decode($_GET["data"],true);
             try{
                 $stmt = Connection::connect()->prepare("SELECT * FROM negociacoes where codigo = :id ");
                 $stmt->bindValue(':id', (int)$obj["id"], PDO::PARAM_INT);
@@ -138,7 +137,7 @@
             try {
                 $stmt = Connection::connect()->prepare("
                     CREATE TABLE negociacoes (
-                        codigo int(11) NOT NULL,
+                        codigo int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
                         tipo varchar(50) NOT NULL,
                         nome varchar(100) NOT NULL,
                         quantidade int(10) NOT NULL,
