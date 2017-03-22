@@ -153,5 +153,17 @@
                 return (object) array('message' => 'Falha ao executar o script de criação da tabela');
             }
         }
+		
+		public static function dropTable() {
+            try {
+                $stmt = Connection::connect()->prepare("DROP TABLE negociacoes;");
+                if($stmt->execute())
+                    return (object) array('message' => true);
+                else
+                    return (object) array('message' => $stmt->errorInfo());
+            } catch(Exception $ex) {
+                return (object) array('message' => 'Falha ao executar o script de exclusão da tabela');
+            }
+        }
     }
 ?>
