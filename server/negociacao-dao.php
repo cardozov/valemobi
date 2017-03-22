@@ -37,28 +37,6 @@
             }
         }
 
-        /*public static function insertMany(){
-            $postdata = file_get_contents("php://input");
-            $data = json_decode($postdata,true);
-            $objs = json_decode("[{\"id\":\"37\",\"type\":\"Dragon+Ball+Z\",\"name\":\"Goku\",\"qtd\":1,\"price\":\"8000.01\",\"dealType\":\"COMPRA\"},{\"id\":\"38\",\"type\":\"Dragon+Ball+Z\",\"name\":\"Freeza\",\"qtd\":1,\"price\":\"5000.01\",\"dealType\":\"COMPRA\"},{\"id\":\"39\",\"type\":\"Dragon+Ball+Z\",\"name\":\"Vegeta\",\"qtd\":1,\"price\":\"4500.01\",\"dealType\":\"COMPRA\"},{\"id\":\"40\",\"type\":\"Ben+10\",\"name\":\"Quatro+Bra%C3%A7os\",\"qtd\":1,\"price\":\"100.01\",\"dealType\":\"COMPRA\"},{\"id\":\"41\",\"type\":\"Ben+10\",\"name\":\"Fantasma\",\"qtd\":1,\"price\":\"100.01\",\"dealType\":\"COMPRA\"}]",true);
-            try{
-                foreach($objs as $obj){
-                    $stmt = Connection::connect()->prepare("INSERT INTO negociacoes(nome, preco, quantidade, tipo, tipo_negociacao) VALUES(:nome, :preco, :quantidade, :tipo, :tipo_negociacao)");
-                    $stmt->bindValue(":nome", $obj["name"], PDO::PARAM_STR);
-                    $stmt->bindValue(":preco", $obj["price"], PDO::PARAM_STR);
-                    $stmt->bindValue(":quantidade", $obj["qtd"], PDO::PARAM_INT);
-                    $stmt->bindValue(":tipo", $obj["type"], PDO::PARAM_STR);
-                    $stmt->bindValue(":tipo_negociacao", $obj["dealType"], PDO::PARAM_STR);
-                    if(!$stmt->execute()){
-                        return (object) array('message' => 'Não foi possível inserir os dados requisitados no banco');
-                    }
-                }
-                return (object) array('message' => true);
-            } catch(PDOException $ex){
-                return (object) array('message' => $ex->message());
-            }
-        }*/
-
         /**
         * Método responsável por excluir um registro da base de dados
         * @author Vinicius Goulart Cardozo <vinicius.gcardozo@gmail.com>
@@ -153,6 +131,27 @@
                     return (object) array('message' => 'Não foi possível buscar os valores no banco de dados');
             } catch(PDOException $ex){
                 return (object) array('message' => $ex->message());
+            }
+        }
+
+        public static function createTable() {
+            try {
+                $stmt = Connection::connect()->prepare("
+                    CREATE TABLE negociacoes (
+                        codigo int(11) NOT NULL,
+                        tipo varchar(50) NOT NULL,
+                        nome varchar(100) NOT NULL,
+                        quantidade int(10) NOT NULL,
+                        preco float(18,2) NOT NULL,
+                        tipo_negociacao varchar(10) NOT NULL
+                    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+                ");
+                if($stmt->execute())
+                    return (object) array('message' => true);
+                else
+                    return (object) array('message' => $stmt->errorInfo());
+            } catch(Exception $ex) {
+                return (object) array('message' => 'Falha ao executar o script de criação da tabela');
             }
         }
     }
