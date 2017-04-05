@@ -4,7 +4,7 @@
  * @author Vinicius Goulart Cardozo
  */
 angular.module('app').service("HTTPService", function ($http) {
-    let server = "https://valemobi-intern-test.herokuapp.com/server/servico.php";
+    let server = "https://valemobi-app.herokuapp.com/server/servico.php";
     //let server = "http://localhost/server/servico.php";
     //let server = "http://us-cdbr-iron-east-03.cleardb.net/server/servico.php";
 
