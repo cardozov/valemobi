@@ -33,7 +33,7 @@ angular.module('app').controller('CadastroController',function($scope, HTTPServi
         if(model.type == "") return false;
         if(model.name == "") return false;
         if(model.qtd <= 0) return false;
-        if(MoneyService.toFloat(model.price) < 0) return false;
+        if(model.price < 0) return false;
         if(model.dealType != "COMPRA" && model.dealType != "VENDA") return false;
         return true;
     }
